@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#dcecff">
+<title>R.E.M. — Assistente</title>
+<style>
+:root{--blue:#8bbdf5;--deep:#315a91;--pink:#f5d9eb;--lilac:#e8e0ff;--glass:rgba(255,255,255,.76);--ink:#263957}
+*{box-sizing:border-box}body{margin:0;min-height:100dvh;font-family:system-ui,-apple-system,sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 10%,#fff 0,transparent 28%),linear-gradient(145deg,#d8edff,#f7e7f4 55%,#e9e2ff);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.45;background-image:radial-gradient(#fff 1.4px,transparent 1.4px);background-size:29px 29px}
+.wrap{max-width:720px;margin:auto;min-height:100dvh;padding:14px 13px 18px;display:flex;flex-direction:column;gap:12px;position:relative}
+header{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border:1px solid #ffffffc9;border-radius:20px;background:var(--glass);backdrop-filter:blur(12px);box-shadow:0 8px 25px #7698bd20}
+.brand{display:flex;align-items:center;gap:10px}.logo{width:43px;height:43px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,#b8dcff,#efdcff);font-size:25px}.brand h1{font-size:20px;margin:0;letter-spacing:1px}.brand small{display:block;font-size:11px;color:#617da3}
+button{font:inherit;border:0;cursor:pointer}.pill{border-radius:14px;padding:9px 12px;background:#e8f2ff;color:var(--deep);font-weight:650}
+.hero{position:relative;overflow:hidden;border-radius:26px;min-height:190px;padding:18px;background:linear-gradient(135deg,#bfe0ffdd,#f4dff4e8);border:1px solid #ffffffd6;box-shadow:0 10px 30px #7698bd20;display:flex;align-items:center;gap:12px}
+.heroText{flex:1;z-index:1}.hero h2{margin:0 0 7px;font-size:22px}.hero p{margin:0;line-height:1.45;font-size:13px;max-width:320px;color:#476083}.orb{font-size:78px;filter:drop-shadow(0 8px 7px #6c8eb333);animation:float 4s ease-in-out infinite;min-width:95px;text-align:center}.butterfly{position:absolute;font-size:23px;opacity:.75;animation:drift 8s ease-in-out infinite}.b1{right:22px;top:15px}.b2{right:42%;bottom:12px;animation-delay:-3s}.b3{left:13px;top:15px;font-size:17px;animation-delay:-5s}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2deg)}}@keyframes drift{0%,100%{transform:translate(0,0) rotate(-8deg)}50%{transform:translate(-12px,-12px) rotate(12deg)}}
+.status{display:flex;align-items:center;gap:7px;font-size:12px;margin-top:13px;color:#466b94}.dot{width:8px;height:8px;background:#67cba4;border-radius:50%;box-shadow:0 0 0 4px #67cba426}
+.chat{flex:1;min-height:280px;border-radius:24px;background:var(--glass);border:1px solid #ffffffd9;box-shadow:0 10px 30px #7698bd20;display:flex;flex-direction:column;overflow:hidden}
+.chathead{padding:13px 16px;border-bottom:1px solid #dce7f5;display:flex;justify-content:space-between;align-items:center;font-weight:700}.chathead small{font-weight:400;color:#7285a1}
+.messages{padding:14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;flex:1;max-height:42dvh;min-height:190px}
+.msg{max-width:88%;padding:11px 13px;border-radius:17px;line-height:1.45;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere}.bot{align-self:flex-start;background:#edf5ff;border-bottom-left-radius:5px}.user{align-self:flex-end;background:#e9ddff;border-bottom-right-radius:5px}
+.composer{padding:11px;display:flex;gap:8px;border-top:1px solid #dce7f5;align-items:flex-end}.composer textarea{resize:none;min-height:44px;max-height:110px;flex:1;border:1px solid #d4e2f4;border-radius:15px;padding:11px 12px;background:#fffdfd;outline:none;font:inherit;color:var(--ink)}.iconbtn{height:44px;min-width:44px;border-radius:14px;background:#e7f1ff;color:#365d91;font-size:18px}.send{background:linear-gradient(135deg,#8ebff6,#c4aaf5);color:white;font-weight:750;padding:0 16px}
+.tools{display:flex;gap:8px;flex-wrap:wrap}.tools button{flex:1;min-width:115px;padding:10px 12px;border-radius:15px;background:#ffffffb8;border:1px solid #fff;color:#45658c;font-size:13px;font-weight:650}
+.note{font-size:11px;line-height:1.4;text-align:center;color:#617694;padding:0 10px}
+footer{text-align:center;font-size:11px;color:#7487a0}
+@media(max-width:390px){.hero{padding:14px;min-height:170px}.orb{font-size:64px;min-width:72px}.hero h2{font-size:19px}.hero p{font-size:12px}.messages{max-height:39dvh}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="brand"><div class="logo">🦋</div><div><h1>R.E.M.</h1><small>Sua companheira virtual</small></div></div><button class="pill" id="themeBtn" aria-label="Mudar tema">☾ Tema</button></header>
+<section class="hero">
+ <span class="butterfly b1">🦋</span><span class="butterfly b2">✦</span><span class="butterfly b3">✧</span>
+ <div class="heroText"><h2>Olá! Eu sou a R.E.M. 💙</h2><p>Estou aqui para conversar com você. Esta é minha primeira versão para celular.</p><div class="status"><span class="dot"></span><span id="status">Pronta para conversar</span></div></div>
+ <div class="orb" aria-label="Avatar decorativo">🩵</div>
+</section>
+<section class="chat">
+ <div class="chathead"><span>✧ Conversa</span><small id="mode">Modo demonstração</small></div>
+ <div class="messages" id="messages" aria-live="polite"><div class="msg bot">Oi! 💙 Eu sou a R.E.M.! Esta versão já tem uma interface interativa e posso falar usando a voz do seu navegador. Para respostas inteligentes da OpenAI, precisaremos conectar um backend seguro depois. Experimente escrever uma mensagem!</div></div>
+ <form class="composer" id="chatForm"><textarea id="input" rows="1" placeholder="Escreva uma mensagem..." aria-label="Mensagem"></textarea><button type="button" class="iconbtn" id="micBtn" title="Ditado por voz">🎙️</button><button class="iconbtn send" type="submit">➤</button></form>
+</section>
+<div class="tools"><button id="speakBtn">🔊 Ler última resposta</button><button id="stopBtn">⏹ Parar voz</button><button id="clearBtn">↻ Nova conversa</button></div>
+<div class="note">Protótipo local: as respostas ainda são demonstrativas. Não insira senhas ou informações privadas. A chave da API nunca deve ser colocada diretamente nesta página.</div>
+<footer>Feito com carinho para o projeto R.E.M. · v0.1</footer>
+</div>
+<script>
+const $=id=>document.getElementById(id), messages=$('messages');
+let lastReply='Oi! Eu sou a R.E.M. Vamos conversar?';
+function add(text,who){const el=document.createElement('div');el.className='msg '+who;el.textContent=text;messages.appendChild(el);messages.scrollTop=messages.scrollHeight;return el}
+function replyFor(text){const t=text.toLowerCase();if(/oi|olá|ola|bom dia|boa tarde|boa noite/.test(t))return 'Oii! 💙 Que bom conversar com você. Ainda estou na minha versão inicial, mas podemos continuar testando minha interface!';if(/quem é você|quem e voce|quem é a rem|seu nome/.test(t))return 'Eu sou a R.E.M., sua assistente virtual de estilo anime! 🦋 Nesta versão, a conversa é demonstrativa; a próxima etapa será conectar a inteligência da OpenAI com segurança.';if(/voz|falar|áudio|audio|microfone/.test(t))return 'Você pode tocar no botão do microfone para ditar uma mensagem, se o seu navegador oferecer suporte. Use “Ler última resposta” para ouvir minha voz sintética.';if(/ajuda|o que você faz|o que voce faz/.test(t))return 'Por enquanto, posso demonstrar a interface, testar voz e ditado do navegador e ajudar a planejar o projeto. Para responder livremente com inteligência artificial, falta configurar uma conexão segura com a API.';return 'Recebi sua mensagem: “'+text+'” 💙 Esta versão ainda não está conectada à IA, então minha resposta é apenas demonstrativa. Na próxima etapa podemos ligar o chat à API da OpenAI usando um backend seguro.'}
+$('chatForm').addEventListener('submit',e=>{e.preventDefault();const text=$('input').value.trim();if(!text)return;add(text,'user');$('input').value='';$('status').textContent='Preparando resposta…';setTimeout(()=>{lastReply=replyFor(text);add(lastReply,'bot');$('status').textContent='Pronta para conversar';},350)});
+$('input').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();$('chatForm').requestSubmit()}});
+$('speakBtn').onclick=()=>{if(!('speechSynthesis'in window)){alert('A voz não é suportada neste navegador. Tente abrir no Chrome.');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(lastReply);u.lang='pt-BR';u.rate=.94;u.pitch=1.12;speechSynthesis.speak(u);$('status').textContent='Falando…';u.onend=()=>{$('status').textContent='Pronta para conversar'}};
+$('stopBtn').onclick=()=>{if('speechSynthesis'in window)speechSynthesis.cancel();$('status').textContent='Pronta para conversar'};
+$('clearBtn').onclick=()=>{messages.innerHTML='';lastReply='Oi! 💙 Vamos começar uma nova conversa.';add(lastReply,'bot');$('status').textContent='Pronta para conversar'};
+$('micBtn').onclick=()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert('Ditado por voz não está disponível neste navegador. Tente o Chrome e permita o acesso ao microfone.');return}const rec=new SR();rec.lang='pt-BR';rec.interimResults=false;rec.onstart=()=>{$('status').textContent='Ouvindo…'};rec.onresult=e=>{$('input').value=e.results[0][0].transcript;$('input').focus();$('status').textContent='Transcrição pronta — confira e envie'};rec.onerror=()=>{$('status').textContent='Não foi possível acessar o microfone';};rec.onend=()=>{if($('status').textContent==='Ouvindo…')$('status').textContent='Pronta para conversar'};try{rec.start()}catch(e){alert('Não foi possível iniciar o microfone. Verifique as permissões do navegador.')}};
+$('themeBtn').onclick=()=>{document.body.classList.toggle('night');if(document.body.classList.contains('night')){document.body.style.background='linear-gradient(145deg,#202e4c,#463954 55%,#282c4d)';document.body.style.color='#edf3ff';document.querySelectorAll('header,.hero,.chat').forEach(e=>{e.style.backgroundColor='rgba(28,39,64,.86)';e.style.borderColor='#566789'});document.querySelectorAll('.chathead').forEach(e=>e.style.borderColor='#566789');$('themeBtn').textContent='☀ Tema'}else{document.body.style.background='radial-gradient(circle at 10% 10%,#fff 0,transparent 28%),linear-gradient(145deg,#d8edff,#f7e7f4 55%,#e9e2ff)';document.body.style.color='var(--ink)';document.querySelectorAll('header,.hero,.chat').forEach(e=>{e.style.backgroundColor='';e.style.borderColor=''});document.querySelectorAll('.chathead').forEach(e=>e.style.borderColor='');$('themeBtn').textContent='☾ Tema'}};
+</script>
+</body>
+</html>
