@@ -47,8 +47,7 @@ footer{text-align:center;font-size:11px;color:#7487a0}
 <div class="tools"><button id="speakBtn">🔊 Ler última resposta</button><button id="stopBtn">⏹ Parar voz</button><button id="clearBtn">↻ Nova conversa</button></div>
 <div class="note">Protótipo local: as respostas ainda são demonstrativas. Não insira senhas ou informações privadas. A chave da API nunca deve ser colocada diretamente nesta página.</div>
 <footer>R.E.M. · Pastel Dream UI · protótipo v0.2</footer>
-</div>
-<script>
+</div><script>
 const $=id=>document.getElementById(id), messages=$('messages');
 let lastReply='Oi! Eu sou a R.E.M. Vamos conversar?';
 function add(text,who){const el=document.createElement('div');el.className='msg '+who;el.textContent=text;messages.appendChild(el);messages.scrollTop=messages.scrollHeight;return el}
@@ -59,7 +58,6 @@ $('speakBtn').onclick=()=>{if(!('speechSynthesis'in window)){alert('A voz não �
 $('stopBtn').onclick=()=>{if('speechSynthesis'in window)speechSynthesis.cancel();$('status').textContent='Pronta para conversar'};
 $('clearBtn').onclick=()=>{messages.innerHTML='';lastReply='Oi! 💙 Vamos começar uma nova conversa.';add(lastReply,'bot');$('status').textContent='Pronta para conversar'};
 $('micBtn').onclick=()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert('Ditado por voz não está disponível neste navegador. Tente o Chrome e permita o acesso ao microfone.');return}const rec=new SR();rec.lang='pt-BR';rec.interimResults=false;rec.onstart=()=>{$('status').textContent='Ouvindo…'};rec.onresult=e=>{$('input').value=e.results[0][0].transcript;$('input').focus();$('status').textContent='Transcrição pronta — confira e envie'};rec.onerror=()=>{$('status').textContent='Não foi possível acessar o microfone';};rec.onend=()=>{if($('status').textContent==='Ouvindo…')$('status').textContent='Pronta para conversar'};try{rec.start()}catch(e){alert('Não foi possível iniciar o microfone. Verifique as permissões do navegador.')}};
-$('themeBtn').onclick=()=>{document.body.classList.toggle('night');if(document.body.classList.contains('night')){document.body.style.background='linear-gradient(145deg,#202e4c,#463954 55%,#282c4d)';document.body.style.color='#edf3ff';document.querySelectorAll('header,.hero,.chat').forEach(e=>{e.style.backgroundColor='rgba(28,39,64,.86)';e.style.borderColor='#566789'});document.querySelectorAll('.chathead').forEach(e=>e.style.borderColor='#566789');$('themeBtn').textContent='☀ Tema'}else{document.body.style.background='radial-gradient(circle at 10% 10%,#fff 0,transparent 28%),linear-gradient(145deg,#d8edff,#f7e7f4 55%,#e9e2ff)';document.body.style.color='var(--ink)';document.querySelectorAll('header,.hero,.chat').forEach(e=>{e.style.backgroundColor='';e.style.borderColor=''});document.querySelectorAll('.chathead').forEach(e=>e.style.borderColor='');$('themeBtn').textContent='☾ Tema'}};
-</script>
-</body>
-</html>
+$('themeBtn').onclick=()=
+ </body>
+</html
